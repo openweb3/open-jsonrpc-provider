@@ -5,12 +5,12 @@ A provider can be used in javascript projects
 ## Targets
 
 1. Implement [EIP-1193](https://eips.ethereum.org/EIPS/eip-1193)
-2. Compatible with send, call, request standard.
+2. Compatible with send, call, request standard.  ✅
 3. Support HTTP and Websocket
 4. Support middleware
-5. Support proxy mode
+5. Support proxy mode ✅
 
-## Ref 
+## Ref
 
 * [MetaMask-providers](https://github.com/MetaMask/providers)
 * [eth-provider](https://github.com/floating/eth-provider)
