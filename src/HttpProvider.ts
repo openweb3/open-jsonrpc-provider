@@ -1,22 +1,35 @@
-import { BaseProvider } from "./BaseProvider";
 import { ProviderConfig, JsonRpcResponse } from './types';
+import { BaseProvider } from "./BaseProvider";
 import axios from 'axios';
+import { sleep } from './helper';
 
 export class HttpProvider extends BaseProvider {
-  url: string;
-
   constructor(options: ProviderConfig) {
     super(options);
-    this.url = options.url;
   }
 
   /**
-   * TODO: 1. timeout  2. retry  3. error
    * @param data 
    * @returns 
    */
   async _transport(data: any): Promise<JsonRpcResponse> {
-    const response = await axios.post(this.url, data);
-    return response.data;
+    let leftTries = this.retry;
+    let error = null;
+    while (leftTries > 0) {
+      try {
+        const response = await axios({
+          url: this.url,
+          method: 'post',
+          data,
+          timeout: this.timeout,
+        });
+        return response.data;
+      } catch(_error) {
+        error = _error;
+      }
+      await sleep(1000);  // sleep 1 second
+      leftTries--;
+    }
+    throw error;
   }
 }

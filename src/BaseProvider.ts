@@ -20,8 +20,15 @@ export class JsonRpcError extends Error {
 }
 
 export class BaseProvider extends EventEmitter implements EthereumProvider {
+  url: string;
+  timeout: number;
+  retry: number;
+  
   constructor(options: ProviderConfig) {
     super();
+    this.url = options.url;
+    this.timeout = options.timeout || 30000; // 30 seconds
+    this.retry = options.retry || 1; // 1 retry
   }
 
   _transport(data: any): Promise<JsonRpcResponse | JsonRpcResponse[]> {
@@ -44,9 +51,7 @@ export class BaseProvider extends EventEmitter implements EthereumProvider {
   async request(req: RequestArguments): Promise<unknown> {
     const data = await this._transport(this.buildRpcPayload(req));
     const { result, error } = data as JsonRpcResponse;
-    if (error) {
-      throw new JsonRpcError(error.message, error.code, error.data);
-    }
+    if (error) throw new JsonRpcError(error.message, error.code, error.data);
     return result;
   }
 
