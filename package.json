@@ -1,0 +1,28 @@
+{
+  "name": "@conflux-dev/ts-rpc-provider",
+  "version": "1.0.0",
+  "description": "A provider can be used in javascript projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "npx tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/openweb3/ts-rpc-provider.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/openweb3/ts-rpc-provider/issues"
+  },
+  "homepage": "https://github.com/openweb3/ts-rpc-provider#readme",
+  "devDependencies": {
+    "@types/node": "^17.0.38",
+    "typescript": "^4.7.2"
+  },
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
+}
