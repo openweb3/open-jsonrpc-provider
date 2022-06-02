@@ -1,4 +1,4 @@
-# ts-jsonrpc-provider
+# open-jsonrpc-provider
 
 A provider can be used in javascript projects
 
@@ -10,6 +10,29 @@ A provider can be used in javascript projects
 4. Support WebSocket
 5. Support middleware
 6. Support proxy mode ✅
+
+## Guides
+
+### Install
+
+```sh
+$ npm install open-jsonrpc-provider
+```
+
+### How to use
+
+```js
+const { HttpProvider } = require('open-jsonrpc-provider');
+
+const provider = new HttpProvider({
+  url: 'http://localhost:8545',
+});
+
+provider.request({
+  method: 'eth_blockNumber',
+  params: []
+}).then(console.log);
+```
 
 ## Other Implementations
 

@@ -1,8 +1,8 @@
 {
-  "name": "@conflux-dev/ts-rpc-provider",
-  "version": "1.0.0",
+  "name": "open-jsonrpc-provider",
+  "version": "0.1.0",
   "description": "A provider can be used in javascript projects",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "tsc": "npx tsc",
     "test": "mocha --recursive \"test/**/*.ts\" --exit"
@@ -11,6 +11,10 @@
     "type": "git",
     "url": "git+https://github.com/openweb3/ts-rpc-provider.git"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
