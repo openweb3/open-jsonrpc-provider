@@ -40,7 +40,8 @@ export class BaseProvider extends EventEmitter implements EthereumProvider {
   }
 
   id(): number {
-    return Date.now();
+    const id = (Date.now() + Math.random()) * 10000;
+    return Number(id);
   }
 
   buildRpcPayload(req: RequestArguments): JsonRpcRequest {
@@ -59,9 +60,11 @@ export class BaseProvider extends EventEmitter implements EthereumProvider {
     return result;
   }
 
-  async requestBatch(batch: RequestArguments[]): Promise<JsonRpcResponse[]> {
+  async requestBatch(batch: RequestArguments[]): Promise<unknown[]> {
     const data = await this._transportBatch(batch.map(this.buildRpcPayload));
-    return data;
+    return data.map(({ result, error }) => {
+      return error ? new JsonRpcError(error.message, error.code, error.data) : result;
+    });
   }
 
   // legacy methods

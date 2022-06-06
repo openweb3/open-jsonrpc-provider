@@ -35,6 +35,6 @@ export class HttpProvider extends BaseProvider {
 
   _transportBatch(data: JsonRpcRequest[]): Promise<JsonRpcResponse[]> {
     // @ts-ignore
-    return await this._transport(data);
+    return this._transport(data);
   }
 }
