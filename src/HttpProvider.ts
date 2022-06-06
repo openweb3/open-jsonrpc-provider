@@ -1,4 +1,4 @@
-import { ProviderConfig, JsonRpcResponse } from './types';
+import { ProviderConfig, JsonRpcRequest, JsonRpcResponse } from './types';
 import { BaseProvider } from "./BaseProvider";
 import axios from 'axios';
 import { sleep } from './helper';
@@ -12,7 +12,7 @@ export class HttpProvider extends BaseProvider {
    * @param data 
    * @returns 
    */
-  async _transport(data: any): Promise<JsonRpcResponse> {
+  async _transport(data: JsonRpcRequest): Promise<JsonRpcResponse> {
     let leftTries = this.retry;
     let error = null;
     while (leftTries > 0) {
@@ -31,5 +31,10 @@ export class HttpProvider extends BaseProvider {
       leftTries--;
     }
     throw error;
+  }
+
+  _transportBatch(data: JsonRpcRequest[]): Promise<JsonRpcResponse[]> {
+    // @ts-ignore
+    return await this._transport(data);
   }
 }

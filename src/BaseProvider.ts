@@ -31,8 +31,12 @@ export class BaseProvider extends EventEmitter implements EthereumProvider {
     this.retry = options.retry || 1; // 1 retry
   }
 
-  _transport(data: any): Promise<JsonRpcResponse | JsonRpcResponse[]> {
+  _transport(data: JsonRpcRequest): Promise<JsonRpcResponse> {
     throw new Error('_transport not implemented');
+  }
+
+  _transportBatch(data: JsonRpcRequest[]): Promise<JsonRpcResponse[]> {
+    throw new Error('_transportBatch not implemented');
   }
 
   id(): number {
@@ -55,6 +59,12 @@ export class BaseProvider extends EventEmitter implements EthereumProvider {
     return result;
   }
 
+  async requestBatch(batch: RequestArguments[]): Promise<JsonRpcResponse[]> {
+    const data = await this._transportBatch(batch.map(this.buildRpcPayload));
+    return data;
+  }
+
+  // legacy methods
   send(method: string, params: any[]): Promise<unknown> {
     return this.request({method, params});
   }
@@ -69,8 +79,5 @@ export class BaseProvider extends EventEmitter implements EthereumProvider {
     return this.request({method, params: args});
   }
 
-  async sendBatch(batch: RequestArguments[]): Promise<JsonRpcResponse[]> {
-    const data = await this._transport(batch.map(this.buildRpcPayload));
-    return data as JsonRpcResponse[];
-  }
+  close() {}
 }
