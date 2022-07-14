@@ -7,7 +7,7 @@ A provider can be used in javascript projects
 1. Implement [EIP-1193](https://eips.ethereum.org/EIPS/eip-1193)  ✅
 2. Compatible with `send`, `call`, `request`, `sendAsync` standard  ✅
 3. Support HTTP  ✅
-4. Support WebSocket
+4. Support WebSocket  ✅
 5. Support middleware
 6. Support proxy mode ✅
 
