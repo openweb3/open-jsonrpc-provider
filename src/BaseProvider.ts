@@ -28,7 +28,7 @@ export class BaseProvider extends EventEmitter implements EthereumProvider {
     super();
     this.url = options.url;
     this.timeout = options.timeout || 30000; // 30 seconds
-    this.retry = options.retry || 1; // 1 retry
+    this.retry = options.retry || 3;
   }
 
   _transport(data: JsonRpcRequest): Promise<JsonRpcResponse> {

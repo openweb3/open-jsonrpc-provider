@@ -4,7 +4,7 @@ import {
 
 export function createProxyWrapper(hardhatProvider: EthereumProvider): EthereumProvider {
   
-  const handers = {
+  const handlers = {
     get(target: any, prop: any, receiver: EthereumProvider) {
       if (target[prop]) return target[prop];
 
@@ -17,6 +17,6 @@ export function createProxyWrapper(hardhatProvider: EthereumProvider): EthereumP
     }
   };
 
-  const proxy = new Proxy(hardhatProvider, handers);
+  const proxy = new Proxy(hardhatProvider, handlers);
   return proxy as EthereumProvider;
 }

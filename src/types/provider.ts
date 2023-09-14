@@ -46,15 +46,16 @@ export interface JsonRpcRequest {
   id: number;
 }
 
+export interface JsonRpcError extends Error {
+    code: number;
+    data?: any;
+}
+
 export interface JsonRpcResponse {
   jsonrpc: string;
   id: number;
   result?: any;
-  error?: {
-    code: number;
-    message: string;
-    data?: any;
-  };
+  error?: JsonRpcError;
 }
 
 export type RpcCallback = (error: any, response?: JsonRpcResponse) => void;
