@@ -1,7 +1,7 @@
-import { ProviderConfig, JsonRpcRequest, JsonRpcResponse } from './types';
-import { BaseProvider } from "./BaseProvider";
 import axios from 'axios';
-import { sleep } from './helper';
+import { ProviderConfig, JsonRpcRequest, JsonRpcResponse } from './types/index.js';
+import { BaseProvider } from "./BaseProvider.js";
+import { sleep } from './helper.js';
 
 export class HttpProvider extends BaseProvider {
   constructor(options: ProviderConfig) {

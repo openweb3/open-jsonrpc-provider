@@ -6,7 +6,7 @@ import {
   JsonRpcResponse,
   ProviderConfig,
   RpcCallback,
-} from './types';
+} from './types/index.js';
 
 export class JsonRpcError extends Error {
   code: number;

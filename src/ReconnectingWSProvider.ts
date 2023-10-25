@@ -1,8 +1,8 @@
-import { BaseProvider } from "./BaseProvider";
-import { ProviderConfig, JsonRpcRequest, JsonRpcResponse, WSProviderConfig } from "./types";
 import WebSocket from 'ws';
 import ReconnectingWebSocket from 'reconnecting-websocket';
-import { awaitTimeout } from './helper';
+import { BaseProvider } from "./BaseProvider.js";
+import { ProviderConfig, JsonRpcRequest, JsonRpcResponse, WSProviderConfig } from "./types/index.js";
+import { awaitTimeout } from './helper.js';
 
 export class ReconnectingWSProvider extends BaseProvider {
   url: string;

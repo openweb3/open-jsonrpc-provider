@@ -16,7 +16,7 @@ A provider can be used in javascript projects
 ### Install
 
 ```sh
-$ npm install open-jsonrpc-provider
+npm install open-jsonrpc-provider
 ```
 
 ### How to use
@@ -34,9 +34,14 @@ provider.request({
 }).then(console.log);
 ```
 
+## TODO
+
+- [ ] Support both browser and nodejs
+- [ ] Provide two module standard: `commonjs` and `esm`
+
 ## Other Implementations
 
-* [MetaMask-providers](https://github.com/MetaMask/providers)
-* [eth-provider](https://github.com/floating/eth-provider)
-* [ethers.js](https://github.com/ethers-io/ethers.js/blob/56af4413b1dd1787db68985e0b612b63d86fdf7c/packages/providers/src.ts/web3-provider.ts)
-* [hardhat](https://github.com/NomicFoundation/hardhat/pull/608)
+- [MetaMask-providers](https://github.com/MetaMask/providers)
+- [eth-provider](https://github.com/floating/eth-provider)
+- [ethers.js](https://github.com/ethers-io/ethers.js/blob/56af4413b1dd1787db68985e0b612b63d86fdf7c/packages/providers/src.ts/web3-provider.ts)
+- [hardhat](https://github.com/NomicFoundation/hardhat/pull/608)
