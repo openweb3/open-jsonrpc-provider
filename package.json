@@ -4,8 +4,6 @@
   "description": "A JSON-RPC provider can be used in both browser and node.js environment.",
   "main": "./lib.cjs/index.js",
   "module": "./lib.esm/index.js",
-  "type": "module",
-  "types": "./types/index.d.ts",
   "sideEffects": false,
   "scripts": {
     "_build-dist": "rollup -c && uglifyjs ./dist/open-provider.umd.js -o ./dist/open-provider.umd.min.js",

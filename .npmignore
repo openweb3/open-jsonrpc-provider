@@ -1,0 +1,5 @@
+dist/*.gz
+tmp
+node_modules
+test
+```
