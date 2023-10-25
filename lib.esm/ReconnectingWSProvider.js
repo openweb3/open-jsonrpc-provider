@@ -1,7 +1,7 @@
-import { BaseProvider } from "./BaseProvider";
 import WebSocket from 'ws';
 import ReconnectingWebSocket from 'reconnecting-websocket';
-import { awaitTimeout } from './helper';
+import { BaseProvider } from "./BaseProvider.js";
+import { awaitTimeout } from './helper.js';
 export class ReconnectingWSProvider extends BaseProvider {
     constructor(options) {
         super(options);

@@ -1,6 +1,6 @@
-import { BaseProvider } from "./BaseProvider";
-import { ProviderConfig, JsonRpcRequest, JsonRpcResponse, WSProviderConfig } from "./types";
 import ReconnectingWebSocket from 'reconnecting-websocket';
+import { BaseProvider } from "./BaseProvider.js";
+import { ProviderConfig, JsonRpcRequest, JsonRpcResponse, WSProviderConfig } from "./types/index.js";
 export declare class ReconnectingWSProvider extends BaseProvider {
     url: string;
     client: ReconnectingWebSocket | null;

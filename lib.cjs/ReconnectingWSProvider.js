@@ -4,11 +4,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReconnectingWSProvider = void 0;
-const BaseProvider_1 = require("./BaseProvider");
 const ws_1 = __importDefault(require("ws"));
 const reconnecting_websocket_1 = __importDefault(require("reconnecting-websocket"));
-const helper_1 = require("./helper");
-class ReconnectingWSProvider extends BaseProvider_1.BaseProvider {
+const BaseProvider_js_1 = require("./BaseProvider.js");
+const helper_js_1 = require("./helper.js");
+class ReconnectingWSProvider extends BaseProvider_js_1.BaseProvider {
     constructor(options) {
         super(options);
         this.url = options.url;
@@ -26,12 +26,12 @@ class ReconnectingWSProvider extends BaseProvider_1.BaseProvider {
     }
     async _transport(data) {
         await this._send(JSON.stringify(data));
-        return (await (0, helper_1.awaitTimeout)(this._awaitId(data.id), this.timeout) || {});
+        return (await (0, helper_js_1.awaitTimeout)(this._awaitId(data.id), this.timeout) || {});
     }
     async _transportBatch(dataArray) {
         await this._send(JSON.stringify(dataArray));
         return Promise.all(dataArray.map(async (data) => {
-            return (await (0, helper_1.awaitTimeout)(this._awaitId(data.id), this.timeout));
+            return (await (0, helper_js_1.awaitTimeout)(this._awaitId(data.id), this.timeout));
         }));
     }
     _awaitId(id) {

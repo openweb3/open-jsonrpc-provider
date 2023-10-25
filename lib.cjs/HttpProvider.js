@@ -4,10 +4,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HttpProvider = void 0;
-const BaseProvider_1 = require("./BaseProvider");
 const axios_1 = __importDefault(require("axios"));
-const helper_1 = require("./helper");
-class HttpProvider extends BaseProvider_1.BaseProvider {
+const BaseProvider_js_1 = require("./BaseProvider.js");
+const helper_js_1 = require("./helper.js");
+class HttpProvider extends BaseProvider_js_1.BaseProvider {
     constructor(options) {
         super(options);
     }
@@ -31,7 +31,7 @@ class HttpProvider extends BaseProvider_1.BaseProvider {
             catch (_error) {
                 error = _error;
             }
-            await (0, helper_1.sleep)(1000); // sleep 1 second
+            await (0, helper_js_1.sleep)(1000); // sleep 1 second
             leftTries--;
         }
         throw error;

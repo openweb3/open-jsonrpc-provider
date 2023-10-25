@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WebSocketProvider = void 0;
 const websocket_1 = require("websocket");
-const BaseProvider_1 = require("./BaseProvider");
-const helper_1 = require("./helper");
-class WebSocketProvider extends BaseProvider_1.BaseProvider {
+const BaseProvider_js_1 = require("./BaseProvider.js");
+const helper_js_1 = require("./helper.js");
+class WebSocketProvider extends BaseProvider_js_1.BaseProvider {
     constructor(options) {
         super(options);
         this.url = options.url;
@@ -22,12 +22,12 @@ class WebSocketProvider extends BaseProvider_1.BaseProvider {
     }
     async _transport(data) {
         await this._send(JSON.stringify(data));
-        return (await (0, helper_1.awaitTimeout)(this._awaitId(data.id), this.timeout) || {});
+        return (await (0, helper_js_1.awaitTimeout)(this._awaitId(data.id), this.timeout) || {});
     }
     async _transportBatch(dataArray) {
         await this._send(JSON.stringify(dataArray));
         return Promise.all(dataArray.map(async (data) => {
-            return (await (0, helper_1.awaitTimeout)(this._awaitId(data.id), this.timeout));
+            return (await (0, helper_js_1.awaitTimeout)(this._awaitId(data.id), this.timeout));
         }));
     }
     _awaitId(id) {

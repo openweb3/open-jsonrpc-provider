@@ -1,6 +1,6 @@
 /// <reference types="node" />
 import { EventEmitter } from "events";
-import { EthereumProvider, RequestArguments, JsonRpcRequest, JsonRpcResponse, ProviderConfig, RpcCallback } from './types';
+import { EthereumProvider, RequestArguments, JsonRpcRequest, JsonRpcResponse, ProviderConfig, RpcCallback } from './types/index.js';
 export declare class JsonRpcError extends Error {
     code: number;
     data?: unknown;

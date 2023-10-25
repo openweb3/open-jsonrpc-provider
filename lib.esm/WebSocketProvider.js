@@ -1,6 +1,6 @@
 import { w3cwebsocket as Websocket } from 'websocket';
-import { BaseProvider } from "./BaseProvider";
-import { awaitTimeout } from './helper';
+import { BaseProvider } from "./BaseProvider.js";
+import { awaitTimeout } from './helper.js';
 export class WebSocketProvider extends BaseProvider {
     constructor(options) {
         super(options);

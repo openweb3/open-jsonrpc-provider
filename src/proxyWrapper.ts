@@ -1,6 +1,4 @@
-import {
-  EthereumProvider
-} from './types'
+import { EthereumProvider } from './types/index.js'
 
 export function createProxyWrapper(hardhatProvider: EthereumProvider): EthereumProvider {
   

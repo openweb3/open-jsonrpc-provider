@@ -14,8 +14,8 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(require("./BaseProvider"), exports);
-__exportStar(require("./HttpProvider"), exports);
-__exportStar(require("./WebSocketProvider"), exports);
-__exportStar(require("./ReconnectingWSProvider"), exports);
-__exportStar(require("./proxyWrapper"), exports);
+__exportStar(require("./BaseProvider.js"), exports);
+__exportStar(require("./HttpProvider.js"), exports);
+// export * from "./WebSocketProvider.js";
+// export * from "./ReconnectingWSProvider.js";
+__exportStar(require("./proxyWrapper.js"), exports);

@@ -1,6 +1,6 @@
 import { w3cwebsocket as Websocket } from 'websocket';
-import { BaseProvider } from "./BaseProvider";
-import { JsonRpcRequest, JsonRpcResponse, WSProviderConfig } from './types';
+import { BaseProvider } from "./BaseProvider.js";
+import { JsonRpcRequest, JsonRpcResponse, WSProviderConfig } from './types/index.js';
 export declare class WebSocketProvider extends BaseProvider {
     url: string;
     client: Websocket | null | boolean;

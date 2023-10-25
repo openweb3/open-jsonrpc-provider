@@ -3,7 +3,20 @@ import commonjs from '@rollup/plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import json from '@rollup/plugin-json';
 import nodePolyfills from 'rollup-plugin-polyfill-node';
-// import terser from '@rollup/plugin-terser';
+
+const globals = `
+    const global = window;
+    // const process = {
+    //     env: {
+    //         NODE_ENV: 'production'
+    //     },
+    //     nextTick: function (fn) {}
+    // };
+    // const Buffer = {
+    //     alloc: function () {},
+    //     from: function () {},
+    // };
+`;
 
 /**
  * @type {import('rollup').RollupOptions}
@@ -15,22 +28,18 @@ export default {
             // dir: 'dist',
             file: 'dist/open-provider.umd.js',
             format: 'umd',
-            name: 'openProvider'
-        },
-        /* {
-            // dir: 'dist',
-            file: 'dist/bundle.umd.min.js',
-            format: 'umd',
             name: 'openProvider',
-            plugins: [terser()] // minify bundle
-        } */
+            banner: globals,
+            // intro: 'const global = window;',
+        },
     ],
     plugins: [
         commonjs(), 
         nodeResolve(), 
         json(), 
         nodePolyfills({
-            include: 'events'
+            include: 'events',
+            exclude: ['Buffer']
         })
     ]
 };

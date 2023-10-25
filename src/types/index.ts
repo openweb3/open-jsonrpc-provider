@@ -1,4 +1,4 @@
-export * from './provider';
+export * from './provider.js';
 
 export interface ProviderConfig {
   url: string;
