@@ -1,12 +1,10 @@
-/// <reference types="node" />
-import { EventEmitter } from "events";
 import { EthereumProvider, RequestArguments, JsonRpcRequest, JsonRpcResponse, ProviderConfig, RpcCallback } from './types/index.js';
 export declare class JsonRpcError extends Error {
     code: number;
     data?: unknown;
     constructor(message: string, code: number, data?: unknown);
 }
-export declare class BaseProvider extends EventEmitter implements EthereumProvider {
+export declare class BaseProvider implements EthereumProvider {
     url: string;
     timeout: number;
     retry: number;

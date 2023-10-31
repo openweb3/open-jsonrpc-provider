@@ -1,5 +1,3 @@
-/// <reference types="node" />
-import { EventEmitter } from "events";
 export interface RequestArguments {
     readonly method: string;
     readonly params?: readonly unknown[] | object;
@@ -29,7 +27,7 @@ export interface CfxSubscription extends ProviderMessage {
 export interface ProviderConnectInfo {
     readonly chainId: string;
 }
-interface EIP1193Provider extends EventEmitter {
+interface EIP1193Provider {
     request(req: RequestArguments): Promise<unknown>;
 }
 export interface JsonRpcRequest {

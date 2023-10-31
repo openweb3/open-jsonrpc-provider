@@ -39,7 +39,6 @@ export default {
         json(), 
         nodePolyfills({
             include: 'events',
-            exclude: ['Buffer']
         })
     ]
 };
