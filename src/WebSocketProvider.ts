@@ -1,5 +1,4 @@
 import { w3cwebsocket as Websocket } from 'websocket';
-import { EventEmitter } from "events";
 import { BaseProvider } from "./BaseProvider.js";
 import { JsonRpcRequest, JsonRpcResponse, WSProviderConfig } from './types/index.js';
 import { awaitTimeout } from './helper.js';
