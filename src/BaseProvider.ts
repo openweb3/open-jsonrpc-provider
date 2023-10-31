@@ -1,4 +1,4 @@
-import { EventEmitter } from "events";
+// import { EventEmitter } from "events";
 import { 
   EthereumProvider, 
   RequestArguments,
@@ -19,13 +19,13 @@ export class JsonRpcError extends Error {
   }
 }
 
-export class BaseProvider extends EventEmitter implements EthereumProvider {
+export class BaseProvider implements EthereumProvider { //  extends EventEmitter
   url: string;
   timeout: number;
   retry: number;
   
   constructor(options: ProviderConfig) {
-    super();
+    // super();
     this.url = options.url;
     this.timeout = options.timeout || 30000; // 30 seconds
     this.retry = options.retry || 3;

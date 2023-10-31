@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaseProvider = exports.JsonRpcError = void 0;
-const events_1 = require("events");
 class JsonRpcError extends Error {
     constructor(message, code, data) {
         super(message);
@@ -10,9 +9,9 @@ class JsonRpcError extends Error {
     }
 }
 exports.JsonRpcError = JsonRpcError;
-class BaseProvider extends events_1.EventEmitter {
+class BaseProvider {
     constructor(options) {
-        super();
+        // super();
         this.url = options.url;
         this.timeout = options.timeout || 30000; // 30 seconds
         this.retry = options.retry || 3;

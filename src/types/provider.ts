@@ -1,4 +1,4 @@
-import { EventEmitter } from "events";
+// import { EventEmitter } from "events";
 
 export interface RequestArguments {
   readonly method: string;
@@ -35,7 +35,7 @@ export interface ProviderConnectInfo {
   readonly chainId: string;
 }
 
-interface EIP1193Provider  extends EventEmitter {
+interface EIP1193Provider { //  extends EventEmitter
   request(req: RequestArguments): Promise<unknown>;
 }
 

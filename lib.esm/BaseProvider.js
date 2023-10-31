@@ -1,4 +1,3 @@
-import { EventEmitter } from "events";
 export class JsonRpcError extends Error {
     constructor(message, code, data) {
         super(message);
@@ -6,9 +5,9 @@ export class JsonRpcError extends Error {
         this.data = data;
     }
 }
-export class BaseProvider extends EventEmitter {
+export class BaseProvider {
     constructor(options) {
-        super();
+        // super();
         this.url = options.url;
         this.timeout = options.timeout || 30000; // 30 seconds
         this.retry = options.retry || 3;
